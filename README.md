@@ -1,6 +1,8 @@
 # NexusGame
 
-Jogo educativo em pixel art para treinamentos e processos seletivos gamificados, com desafios de situações profissionais.
+![Tela do NexusGame — jogo educativo em pixel art na Estação Nexus](docs/imagens/NexusGame.png)
+
+Jogo educativo em pixel art para treinamentos e processos seletivos gamificados.
 
 ## Tecnologias
 
