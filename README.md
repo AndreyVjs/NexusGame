@@ -23,9 +23,9 @@ python3 -m http.server 4173
 
 Abra `http://localhost:4173`. Servir por HTTP local é preferível a abrir o HTML diretamente como `file://`, pois aproxima os caminhos e permissões do ambiente publicado.
 
-## Verificações e integração contínua
+## Verificações
 
-O GitHub Actions executa `npm run check` em cada push e pull request por meio de `.github/workflows/verificar.yml`.
+Antes de enviar alterações, execute `npm run check` para validar a sintaxe do JavaScript e os testes de integridade.
 
 ```bash
 npm run check:js  # verifica sintaxe JavaScript
