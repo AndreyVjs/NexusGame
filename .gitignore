@@ -1,0 +1,19 @@
+# Dependências, caches e saídas locais
+node_modules/
+.npm/
+.vercel/
+coverage/
+test-results/
+playwright-report/
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/*.local.json
+.env
+.env.*
+!.env.example
+
+# Cópias locais de segurança
+*.backup*.html
+*.bak

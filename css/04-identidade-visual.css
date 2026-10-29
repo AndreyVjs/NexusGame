@@ -1,0 +1,454 @@
+/*
+ * Identidade visual do NexusGame.
+ * Ordem de carregamento: esta folha vem após as folhas-base para manter a paleta e os ajustes finais.
+ * Paleta principal: creme, verde-floresta e verde-sálvia.
+ */
+:root{--nx-cream:#F0F1E8;--nx-card:#F8F8F1;--nx-card-soft:#E8ECE1;--nx-green:#2B422B;--nx-green2:#557257;--nx-sage:#7CA982;--nx-sage-light:#A9C4A8;--nx-line:#C8D7C6;--nx-pixel-shadow:rgba(43,66,43,.16)}
+ body{background:var(--nx-cream)!important;color:var(--nx-green)!important}
+ .tela{isolation:isolate;overflow:hidden;background-color:var(--nx-cream)!important;background-image:none!important;background-position:center;background-size:cover}
+ #tela-inicial,#tela-skins,#tela-quiz,#tela-lobby,#tela-fim{background-color:var(--nx-cream)!important;background-image:none!important;color:var(--nx-green)!important}
+ /* Fundo ambiental discreto; a imagem permanece atrás de todos os painéis da interface. */
+ #tela-inicial,#tela-skins,#tela-quiz,#tela-lobby,#tela-fim{background-image:linear-gradient(rgba(240,241,232,.18),rgba(240,241,232,.18)),url('../assets/imagens/fundo-novo.png')!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;background-attachment:scroll!important}
+ #tela-inicial::before,#tela-skins::before,#tela-quiz::before,#tela-lobby::before,#tela-fim::before{background:linear-gradient(rgba(240,241,232,.10),rgba(240,241,232,.10)),repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(43,66,43,.015) 8px,transparent 9px)!important}
+ #tela-inicial::after,#tela-skins::after,#tela-quiz::after,#tela-lobby::after,#tela-fim::after{background:none!important;border-color:rgba(85,114,87,.10)!important}
+ /* Grade de pixels discreta e cantos técnicos: textura sutil, sem criar outra identidade visual. */
+ .tela::before{z-index:0!important;pointer-events:none!important;background:radial-gradient(ellipse at 10% 8%,rgba(124,169,130,.12),transparent 48%),radial-gradient(ellipse at 92% 92%,rgba(169,196,168,.15),transparent 45%),repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(43,66,43,.023) 8px,transparent 9px),repeating-linear-gradient(90deg,transparent 0,transparent 23px,rgba(43,66,43,.02) 24px,transparent 25px)!important}
+ #tela-inicial::before,#tela-skins::before,#tela-quiz::before,#tela-lobby::before,#tela-fim::before{background:radial-gradient(ellipse at 10% 8%,rgba(124,169,130,.12),transparent 48%),radial-gradient(ellipse at 92% 92%,rgba(169,196,168,.15),transparent 45%),repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(43,66,43,.023) 8px,transparent 9px),repeating-linear-gradient(90deg,transparent 0,transparent 23px,rgba(43,66,43,.02) 24px,transparent 25px)!important}
+ #tela-inicial::after,#tela-skins::after,#tela-quiz::after,#tela-lobby::after,#tela-fim::after{content:'';position:absolute;z-index:0;inset:12px;pointer-events:none;border:1px solid rgba(85,114,87,.18);background:linear-gradient(var(--nx-sage) 0 0) left top/18px 2px no-repeat,linear-gradient(var(--nx-sage) 0 0) left top/2px 18px no-repeat,linear-gradient(var(--nx-sage) 0 0) right top/18px 2px no-repeat,linear-gradient(var(--nx-sage) 0 0) right top/2px 18px no-repeat,linear-gradient(var(--nx-sage) 0 0) left bottom/18px 2px no-repeat,linear-gradient(var(--nx-sage) 0 0) left bottom/2px 18px no-repeat,linear-gradient(var(--nx-sage) 0 0) right bottom/18px 2px no-repeat,linear-gradient(var(--nx-sage) 0 0) right bottom/2px 18px no-repeat;opacity:.7}
+ h1,h2,h3{font-family:'Orbitron','Courier New',monospace!important;letter-spacing:.025em!important;text-shadow:1px 2px 0 rgba(43,66,43,.12)!important}
+ button{font-family:'Orbitron','Courier New',monospace!important;letter-spacing:.02em!important;border-radius:3px!important;transition:transform .12s ease,background-color .12s ease,box-shadow .12s ease!important}
+ button:focus-visible{outline:3px solid #557257!important;outline-offset:3px!important}
+ /* Composição da abertura: apresentação, prévia do mapa e guia da estação. */
+ #tela-inicial .inicio-guia{width:min(1450px,100%)!important;grid-template-columns:minmax(205px,.82fr) minmax(300px,1.12fr) minmax(290px,1fr)!important;gap:clamp(12px,1.35vw,20px)!important;align-items:stretch!important}
+ #tela-inicial .inicio-mapa-preview{position:relative;z-index:1;min-width:0;display:flex;flex-direction:column;overflow:hidden;padding:clamp(12px,1.35vw,18px);background:#E2E9DE;border:1px solid #A9C4A8;border-radius:4px;outline:1px solid rgba(43,66,43,.06);box-shadow:4px 4px 0 rgba(43,66,43,.09),0 12px 28px rgba(43,66,43,.07)}
+ #tela-inicial .preview-cabecalho{display:flex;align-items:center;gap:8px;min-height:27px;padding-bottom:10px;border-bottom:1px solid #B7C9B2;color:#2B422B;font:800 9px 'Courier New',monospace;letter-spacing:.09em}
+ #tela-inicial .preview-ponto{width:7px;height:7px;flex:0 0 7px;background:#7CA982;border-radius:50%;box-shadow:0 0 0 3px rgba(124,169,130,.17)}
+ #tela-inicial .preview-status{margin-left:auto;padding:4px 5px;background:#D0DDCA;border:1px solid #B7C9B2;color:#557257;font-size:8px;white-space:nowrap}
+ #tela-inicial .preview-mapa-arte{flex:1;display:flex;align-items:center;justify-content:center;min-height:280px;margin:10px 0;background:#D4E0CD;border:1px solid #B7C9B2;box-shadow:inset 0 0 0 3px rgba(248,248,241,.3);overflow:hidden}
+ #tela-inicial .preview-mapa-arte img{display:block;width:100%;height:100%;max-height:480px;object-fit:contain;image-rendering:pixelated}
+ #tela-inicial .preview-legenda{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;padding-top:10px;border-top:1px solid #B7C9B2;color:#557257;font:700 8px/1.5 'Courier New',monospace;letter-spacing:.025em}
+ #tela-inicial .preview-legenda span{display:inline-flex;align-items:center;gap:5px}
+ #tela-inicial .legenda-ponto{width:6px;height:6px;background:#7CA982;border:1px solid #557257}
+ /* Reduz o brilho da moldura: o mapa já é claro e não precisa de contorno luminoso. */
+ #mapa-wrap{border:2px solid #557257!important;border-radius:3px!important;box-shadow:0 4px 12px rgba(43,66,43,.12)!important;outline:1px solid rgba(43,66,43,.16)!important}
+ #tela-mapa #mapa-canvas{border:0!important;border-radius:0!important;box-shadow:inset 0 0 0 1px rgba(43,66,43,.08)!important}
+ #tela-mapa #mapa-sub{color:#557257!important}
+ #prompt-mapa{border:1px solid #557257!important;box-shadow:2px 3px 0 rgba(43,66,43,.12)!important;backdrop-filter:none!important}
+ #hud-mapa{border:1px solid #A9C4A8!important;box-shadow:0 3px 0 rgba(43,66,43,.07)!important}
+ /* INÍCIO: manter a apresentação e o mapa no lugar, sem sobreposição central. */
+ #tela-inicial{padding:clamp(24px,4vh,42px) clamp(12px,3vw,38px)!important;overflow-y:auto!important;align-items:center!important;justify-content:center!important;background-color:var(--nx-cream)!important;color:var(--nx-green)!important}
+ #tela-inicial .inicio-guia{position:relative;z-index:1;width:min(1160px,100%)!important;grid-template-columns:minmax(230px,.78fr) minmax(0,1.5fr)!important;gap:clamp(14px,2.4vw,28px)!important;align-items:stretch!important;margin:auto!important}
+ #tela-inicial .inicio-apresentacao{position:relative;min-width:0;background:var(--nx-card)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:4px!important;outline:1px solid rgba(43,66,43,.06);box-shadow:4px 4px 0 rgba(43,66,43,.09),0 12px 28px rgba(43,66,43,.07)!important}
+ #tela-inicial .inicio-apresentacao{padding:clamp(18px,3vw,34px)!important;justify-content:center!important;overflow:hidden}
+ #tela-inicial .inicio-apresentacao::after{content:'';position:absolute;right:0;top:0;width:48px;height:48px;background:linear-gradient(135deg,transparent 47%,rgba(124,169,130,.22) 48%,rgba(124,169,130,.22) 53%,transparent 54%);pointer-events:none}
+ #tela-inicial .inicio-sobretitulo{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 8px;margin:0 0 14px!important;background:var(--nx-card-soft);border-left:3px solid var(--nx-sage);color:var(--nx-green2)!important;font:700 10px/1.4 'Courier New',monospace!important;letter-spacing:.1em!important}
+ #tela-inicial .inicio-apresentacao h1{color:var(--nx-green)!important;font-size:clamp(28px,3.4vw,44px)!important;line-height:1.1!important;letter-spacing:-.025em!important;text-shadow:2px 2px 0 rgba(124,169,130,.25)!important;margin:0 0 12px!important}
+ #tela-inicial .inicio-apresentacao .sub{color:var(--nx-green2)!important;font:700 12px/1.55 'Courier New',monospace!important;letter-spacing:.06em!important;border-bottom:1px solid var(--nx-line);padding-bottom:14px;margin:0 0 15px!important}
+ #tela-inicial .inicio-resumo{color:var(--nx-green)!important;font-size:14px!important;line-height:1.75!important;max-width:44ch}
+ #tela-inicial .inicio-destaques{gap:7px!important;margin-top:20px!important}
+ #tela-inicial .inicio-destaques span{padding:6px 9px!important;background:var(--nx-card-soft)!important;border:1px solid var(--nx-line)!important;border-radius:3px!important;color:var(--nx-green)!important;font:700 10px 'Courier New',monospace!important;letter-spacing:.035em}
+ /* Seleção de personagem, questionário e painel usam a mesma paleta clara da abertura. */
+ #tela-skins{padding:clamp(12px,3vh,28px)!important;overflow:auto!important}
+ #tela-skins .skin-conteudo{position:relative!important;z-index:1!important;width:min(980px,100%)!important;max-height:calc(100vh - 52px)!important;overflow:auto!important;padding:clamp(20px,3vw,34px)!important;background:var(--nx-card)!important;color:var(--nx-green)!important;border:2px solid var(--nx-sage-light)!important;border-radius:4px!important;box-shadow:4px 4px 0 rgba(43,66,43,.1),0 12px 26px rgba(43,66,43,.08)!important;text-align:center}
+ #tela-skins .skin-conteudo h1{color:var(--nx-green)!important;font-size:clamp(22px,3vw,34px)!important;line-height:1.35;text-shadow:2px 2px 0 rgba(124,169,130,.2)!important}
+ #tela-skins .skin-conteudo p{color:var(--nx-green2)!important}
+ #tela-skins #skin-opcoes-iniciais{display:flex!important;justify-content:center!important;align-items:stretch!important;gap:12px!important;flex-wrap:wrap!important;margin:22px 0!important}
+ #tela-skins #skin-opcoes-iniciais button{width:min(190px,42vw)!important;min-width:0!important;padding:16px 12px!important;background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border:2px solid var(--nx-line)!important;border-radius:3px!important;box-shadow:0 3px 0 rgba(43,66,43,.12)!important;font:700 11px 'Courier New',monospace!important}
+ #tela-skins #skin-opcoes-iniciais button[aria-pressed="true"]{border-color:var(--nx-sage)!important;box-shadow:0 3px 0 var(--nx-sage),0 0 0 2px rgba(124,169,130,.15)!important;background:#DCE8D8!important}
+ #tela-skins #skin-opcoes-iniciais canvas{image-rendering:pixelated!important}
+ #tela-skins #skin-confirmar{margin:12px 0 0!important;background:var(--nx-green)!important;color:#F8F8F1!important;border:1px solid var(--nx-green2)!important;border-radius:3px!important;box-shadow:0 3px 0 var(--nx-sage-light)!important;padding:12px 18px!important;font:800 10px 'Courier New',monospace!important;text-transform:uppercase}
+ #tela-quiz .cartao,#tela-lobby .cartao,#tela-fim .cartao{background:var(--nx-card)!important;color:var(--nx-green)!important;border:2px solid var(--nx-sage-light)!important;outline:1px solid rgba(43,66,43,.06)!important;border-radius:4px!important;box-shadow:4px 4px 0 rgba(43,66,43,.09),0 12px 28px rgba(43,66,43,.08),inset 0 0 0 2px rgba(255,255,255,.25)!important;backdrop-filter:none!important}
+ #tela-quiz .cartao{width:min(900px,92vw)!important;padding:clamp(20px,3vw,34px)!important}
+ #tela-quiz .cartao::before,#tela-lobby .cartao::before{top:-15px!important;left:24px!important;border:1px solid var(--nx-sage-light)!important;background:var(--nx-green)!important;color:#F8F8F1!important;border-radius:2px!important;box-shadow:2px 2px 0 rgba(43,66,43,.1)!important;font:800 10px 'Courier New',monospace!important;letter-spacing:.12em!important}
+ #tela-quiz .cartao::after,#tela-lobby .cartao::after{background:var(--nx-green)!important;border-color:var(--nx-sage-light)!important}
+ #tela-quiz #quiz-progresso{display:inline-flex!important;padding:5px 8px!important;background:var(--nx-card-soft)!important;border:1px solid var(--nx-line)!important;color:var(--nx-green2)!important;font:700 10px 'Courier New',monospace!important;letter-spacing:.08em!important;margin-bottom:15px!important}
+ #tela-quiz #quiz-pergunta{color:var(--nx-green)!important;font:700 clamp(17px,1.8vw,23px)/1.5 Inter,sans-serif!important;margin:0 0 22px!important;letter-spacing:0!important;text-shadow:none!important}
+ #tela-quiz #quiz-opcoes{gap:12px!important}
+ #tela-quiz button.opcao{min-height:56px!important;padding:13px 15px!important;background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:3px!important;box-shadow:0 3px 0 rgba(43,66,43,.1)!important;font:600 12px/1.55 'Courier New',monospace!important;letter-spacing:0!important}
+ #tela-quiz button.opcao::before{content:'▶';display:inline-block;color:var(--nx-green2);font-size:9px;margin-right:10px}
+ #tela-quiz button.opcao:hover{background:#DCE8D8!important;border-color:var(--nx-sage)!important;transform:translateY(-1px)!important;box-shadow:0 4px 0 rgba(43,66,43,.1)!important}
+ #tela-lobby .cartao{width:min(780px,92vw)!important;padding:clamp(22px,3vw,32px)!important}
+ #tela-lobby .cartao h2,#tela-fim .cartao h2{color:var(--nx-green)!important;font-size:clamp(20px,2.5vw,28px)!important;text-shadow:2px 2px 0 rgba(124,169,130,.2)!important}
+ #tela-lobby #lobby-habilidade{background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:3px!important;box-shadow:0 3px 0 rgba(43,66,43,.08)!important;font:700 12px/1.5 'Courier New',monospace!important}
+ #tela-lobby .barra-atributo .rotulo{color:var(--nx-green2)!important;font:700 10px 'Courier New',monospace!important}
+ #tela-lobby .barra-fundo{height:12px!important;border:1px solid var(--nx-sage-light)!important;background:#E1E7DB!important;border-radius:0!important}
+ #tela-lobby .barra-preenchida{background:repeating-linear-gradient(90deg,#7CA982 0,#7CA982 8px,#A9C4A8 8px,#A9C4A8 10px)!important}
+ #tela-lobby .badge-tag{display:inline-block;margin:3px;padding:6px 9px!important;background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border:1px solid var(--nx-line)!important;border-radius:2px!important;font:700 10px 'Courier New',monospace!important}
+ #tela-lobby button,#tela-fim button{background:var(--nx-green)!important;color:#F8F8F1!important;border:1px solid var(--nx-green2)!important;border-radius:3px!important;box-shadow:0 3px 0 var(--nx-sage-light)!important;padding:11px 15px!important;font:800 10px 'Courier New',monospace!important}
+ #tela-lobby button:hover,#tela-fim button:hover{transform:translateY(-1px)!important;box-shadow:0 4px 0 var(--nx-sage-light)!important}
+ #tela-lobby button.secundario,#tela-fim button.secundario{background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border-color:var(--nx-line)!important;box-shadow:0 3px 0 rgba(43,66,43,.08)!important}
+ #tela-fim .cartao{width:min(760px,92vw)!important;padding:clamp(22px,3vw,34px)!important}
+ #nexus-cargo{background:rgba(248,248,241,.97)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:3px!important;outline:1px solid rgba(43,66,43,.06);box-shadow:3px 3px 0 rgba(43,66,43,.08),0 8px 22px rgba(43,66,43,.08)!important;backdrop-filter:none!important}
+ #nexus-cargo .nexus-cargo-label{color:var(--nx-green2)!important;font-family:'Courier New',monospace!important}
+ #nexus-cargo strong{color:var(--nx-green)!important;font-family:'Orbitron','Courier New',monospace!important}
+ #nexus-cargo-desc{color:var(--nx-green2)!important}
+ #nexus-cargo-ferramenta{background:var(--nx-card-soft)!important;color:var(--nx-green)!important;border:1px solid var(--nx-line)!important;border-radius:2px!important;font-family:'Courier New',monospace!important}
+ #nexus-cargo .nexus-cargo-xp{color:var(--nx-green2)!important;font-family:'Courier New',monospace!important}
+ #nexus-cargo .nexus-cargo-track{height:6px!important;background:#E1E7DB!important;border:1px solid var(--nx-line)!important;border-radius:0!important}
+ #nexus-cargo-barra{background:repeating-linear-gradient(90deg,#7CA982 0,#7CA982 7px,#A9C4A8 7px,#A9C4A8 9px)!important}
+ #nexus-recompensa{background:var(--nx-card)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:3px!important;box-shadow:3px 3px 0 rgba(43,66,43,.1)!important;font:700 11px 'Courier New',monospace!important}
+ /* O cenário jogável e seus sprites são preservados; apenas as caixas de diálogo recebem o mesmo tratamento visual. */
+ #modal{background:linear-gradient(180deg,rgba(20,35,25,.08),rgba(20,35,25,.45)),repeating-linear-gradient(0deg,transparent 0,transparent 7px,rgba(244,245,236,.025) 8px,transparent 9px)!important}
+ #modal #conversa-personagem{background:linear-gradient(145deg,#E8ECE1,#DCE5D9)!important;border:1px solid #A9C4A8!important;border-bottom:4px solid #557257!important;border-radius:4px!important;box-shadow:3px 4px 0 rgba(43,66,43,.14),inset 0 0 0 2px rgba(255,255,255,.2)!important}
+ #modal #retrato-personagem{image-rendering:pixelated!important;filter:drop-shadow(2px 2px 0 rgba(43,66,43,.2))!important}
+ #modal #retrato-nome{background:var(--nx-green)!important;color:#F8F8F1!important;border:1px solid var(--nx-green2)!important;border-radius:2px!important;font:800 9px 'Courier New',monospace!important}
+ #modal.com-personagem .conversa-cartao,#modal.sem-personagem .conversa-cartao{background:var(--nx-card)!important;color:var(--nx-green)!important;border:1px solid var(--nx-sage-light)!important;border-radius:4px!important;box-shadow:4px 4px 0 rgba(43,66,43,.12),0 8px 20px rgba(43,66,43,.08)!important}
+ #modal.com-personagem #modal-titulo,#modal.sem-personagem #modal-titulo{color:var(--nx-green)!important;border-bottom:1px solid var(--nx-line)!important;text-shadow:1px 1px 0 rgba(124,169,130,.15)!important;font-family:'Orbitron','Courier New',monospace!important;letter-spacing:.015em!important}
+ #modal.com-personagem #modal-texto,#modal.sem-personagem #modal-texto{color:#344B35!important}
+ #modal.com-personagem #modal-conteudo button,#modal.sem-personagem #modal-conteudo button,#modal #modal-btn-continuar{background:var(--nx-green)!important;color:#F8F8F1!important;border:1px solid var(--nx-green2)!important;border-radius:3px!important;box-shadow:0 3px 0 var(--nx-sage-light)!important;font:700 11px 'Courier New',monospace!important;letter-spacing:0!important}
+ #modal.com-personagem #modal-conteudo button:hover,#modal.sem-personagem #modal-conteudo button:hover,#modal #modal-btn-continuar:hover{background:#3D5A3E!important;border-color:var(--nx-sage-light)!important;transform:translateY(-1px)!important}
+ @media(max-width:760px){#tela-quiz .cartao,#tela-lobby .cartao{max-height:calc(100vh - 72px);overflow-y:auto;padding:22px 16px 18px!important}#tela-quiz #quiz-opcoes{grid-template-columns:1fr!important;gap:10px!important}#tela-quiz button.opcao{min-height:48px!important}#nexus-cargo{max-width:210px}}
+ @media(max-width:420px){#tela-skins .skin-conteudo{padding:20px 12px!important}#tela-skins #skin-opcoes-iniciais button{width:calc(50% - 8px)!important;max-width:160px}}
+ @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}#nexus-cargo-barra,#nexus-recompensa{transition:none!important}}
+
+ /* Tela inicial: dois painéis equilibrados e ações dentro do painel de apresentação. */
+#tela-inicial {
+  box-sizing: border-box !important;
+  padding: clamp(26px, 4vh, 48px) clamp(18px, 3vw, 46px) 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#tela-inicial .inicio-guia {
+  display: grid !important;
+  box-sizing: border-box !important;
+  width: min(1240px, 100%) !important;
+  max-width: 1240px !important;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  gap: clamp(18px, 2vw, 30px) !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  margin: 0 auto !important;
+}
+#tela-inicial .inicio-apresentacao {
+  grid-area: 1 / 1 / 2 / 2 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  justify-content: center !important;
+  padding: clamp(24px, 2.8vw, 42px) !important;
+  border: 1px solid #A9C4A8 !important;
+  border-radius: 4px !important;
+  box-shadow: 5px 5px 0 rgba(43,66,43,.1), 0 14px 34px rgba(43,66,43,.055) !important;
+}
+#tela-inicial .inicio-apresentacao h1 {
+  max-width: 100% !important;
+  font-size: clamp(34px, 3.1vw, 49px) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -.045em !important;
+}
+#tela-inicial .inicio-apresentacao p { max-width: 38ch !important; line-height: 1.75 !important; }
+#tela-inicial .inicio-mapa-preview {
+  grid-area: 1 / 2 / 2 / 3 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: clamp(14px, 1.6vw, 22px) !important;
+  border-color: #A9C4A8 !important;
+  border-radius: 4px !important;
+  background: #E2E9DE !important;
+  box-shadow: 5px 5px 0 rgba(43,66,43,.1), 0 14px 34px rgba(43,66,43,.055) !important;
+}
+#tela-inicial .preview-cabecalho { font-size: 10px !important; letter-spacing: .11em !important; padding-bottom: 12px !important; }
+#tela-inicial .preview-mapa-arte {
+  box-sizing: border-box !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 1 1 auto !important;
+  margin: 12px 0 !important;
+  background: #D4E0CD !important;
+  border: 1px solid #A9C4A8 !important;
+  box-shadow: inset 0 0 0 4px rgba(248,248,241,.2) !important;
+}
+#tela-inicial .preview-mapa-arte img { display: block; width: 100% !important; height: 100% !important; max-height: 520px !important; object-fit: contain !important; }
+#tela-inicial .preview-legenda { font-size: 9px !important; padding-top: 12px !important; }
+#tela-inicial #inicio-abrir-conversa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  align-self: flex-start;
+  margin-top: 26px !important;
+  min-height: 48px !important;
+  padding: 0 19px !important;
+  background: #2B422B !important;
+  color: #F8F8F1 !important;
+  border: 1px solid #557257 !important;
+  border-radius: 3px !important;
+  box-shadow: 0 4px 0 #A9C4A8, 3px 4px 0 rgba(43,66,43,.08) !important;
+  font: 800 10px 'Courier New', monospace !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase;
+}
+#tela-inicial #inicio-abrir-conversa:hover { background: #3D5A3E !important; transform: translateY(-1px) !important; box-shadow: 0 5px 0 #A9C4A8, 3px 5px 0 rgba(43,66,43,.08) !important; }
+/* Os botões de partida aparecem dentro do cartão inicial apenas quando existe um save. */
+#tela-inicial #botoes-inicio { display: flex !important; grid-column: auto !important; grid-row: auto !important; flex-wrap: wrap; justify-content: flex-start; gap: 8px; margin-top: 12px !important; width: 100%; }
+#tela-inicial #botoes-inicio:empty { display: none !important; }
+#tela-inicial #botoes-inicio button { margin: 0 !important; min-height: 40px; padding: 10px 14px !important; background: var(--nx-green) !important; color: #F8F8F1 !important; border: 1px solid #557257 !important; border-radius: 3px !important; box-shadow: 0 3px 0 #A9C4A8, 3px 3px 0 rgba(43,66,43,.08) !important; font: 800 10px 'Courier New', monospace !important; letter-spacing: .025em !important; text-transform: uppercase; }
+#tela-inicial #botoes-inicio button:hover { background: #3D5A3E !important; transform: translateY(-1px) !important; box-shadow: 0 4px 0 #A9C4A8, 3px 4px 0 rgba(43,66,43,.08) !important; }
+#tela-inicial #botoes-inicio button.secundario { background: var(--nx-card-soft) !important; color: var(--nx-green) !important; border-color: var(--nx-line) !important; box-shadow: 0 3px 0 rgba(43,66,43,.08) !important; }
+
+/* A conversa inicial reutiliza o mesmo modal de diálogo das missões. */
+#modal.guia-dialogo { background: linear-gradient(180deg, rgba(20,35,25,.04), rgba(20,35,25,.4)), repeating-linear-gradient(0deg, transparent 0, transparent 7px, rgba(244,245,236,.018) 8px, transparent 9px) !important; }
+#modal.guia-dialogo #conversa-personagem { background: linear-gradient(145deg, #E8ECE1, #DCE5D9) !important; border: 1px solid #A9C4A8 !important; border-bottom: 4px solid #557257 !important; border-radius: 4px 16px 4px 4px !important; box-shadow: 3px 4px 0 rgba(43,66,43,.14) !important; }
+#modal.guia-dialogo .conversa-cartao { position: relative !important; border-radius: 20px 20px 20px 5px !important; background: #F8F8F1 !important; border: 1px solid #A9C4A8 !important; box-shadow: 4px 4px 0 rgba(43,66,43,.14), 0 12px 26px rgba(20,35,25,.14) !important; }
+#modal.guia-dialogo .conversa-cartao::after { content: ''; position: absolute; left: -9px; bottom: 28px; width: 16px; height: 16px; background: #F8F8F1; border-left: 1px solid #A9C4A8; border-bottom: 1px solid #A9C4A8; transform: rotate(45deg); }
+#modal.guia-dialogo #modal-titulo { color: #2B422B !important; }
+#modal.guia-dialogo #modal-texto { color: #344B35 !important; line-height: 1.7 !important; }
+#modal.guia-dialogo #modal-btn-continuar { background: #2B422B !important; color: #F8F8F1 !important; border-radius: 3px !important; box-shadow: 0 3px 0 #A9C4A8 !important; font: 800 10px 'Courier New', monospace !important; }
+
+/* Ajustes responsivos da abertura, do questionário e da conversa. */
+@media (min-width: 1200px) and (min-height: 760px) {
+  #tela-inicial .inicio-guia { height: min(620px, calc(100vh - 150px)) !important; min-height: 520px !important; }
+}
+@media (max-width: 1199px) and (min-width: 761px) {
+  #tela-inicial { padding: 28px 24px !important; }
+  #tela-inicial .inicio-guia { width: min(100%, 1020px) !important; grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr) !important; gap: 18px !important; height: auto !important; min-height: 0 !important; }
+  #tela-inicial .inicio-apresentacao, #tela-inicial .inicio-mapa-preview { height: auto !important; min-height: 460px !important; }
+  #tela-inicial .inicio-apresentacao { padding: 24px !important; }
+  #tela-inicial .inicio-apresentacao h1 { font-size: clamp(32px, 3.8vw, 43px) !important; }
+  #tela-inicial .preview-mapa-arte { min-height: 300px !important; }
+}
+@media (max-width: 760px) {
+  #tela-inicial { padding: 34px 14px 28px !important; align-items: flex-start !important; justify-content: flex-start !important; }
+  #tela-inicial .inicio-guia { width: 100% !important; max-width: 540px !important; grid-template-columns: minmax(0,1fr) !important; grid-template-rows: auto auto !important; gap: 15px !important; height: auto !important; min-height: 0 !important; margin: auto !important; }
+  #tela-inicial .inicio-apresentacao { grid-area: 1 / 1 / 2 / 2 !important; height: auto !important; min-height: 0 !important; padding: 24px 21px !important; }
+  #tela-inicial .inicio-apresentacao h1 { font-size: clamp(34px, 9vw, 43px) !important; }
+  #tela-inicial .inicio-apresentacao p { max-width: 42ch !important; }
+  #tela-inicial .inicio-mapa-preview { grid-area: 2 / 1 / 3 / 2 !important; height: auto !important; min-height: 370px !important; padding: 13px !important; }
+  #tela-inicial .preview-mapa-arte { height: 300px !important; min-height: 260px !important; flex: 0 0 300px !important; }
+  #tela-inicial .preview-legenda { font-size: 8px !important; }
+  #tela-inicial #inicio-abrir-conversa { width: 100% !important; margin-top: 20px !important; }
+  #tela-quiz .cartao, #tela-lobby .cartao { max-height: calc(100vh - 72px); overflow-y: auto; padding: 22px 16px 18px !important; }
+  #tela-quiz #quiz-opcoes { grid-template-columns: 1fr !important; gap: 10px !important; }
+  #tela-quiz button.opcao { min-height: 48px !important; }
+  #nexus-cargo { max-width: 210px; }
+  #modal.guia-dialogo { gap: 8px !important; padding: 0 10px 12px !important; }
+  #modal.guia-dialogo #conversa-personagem { flex: 0 0 96px !important; width: 96px !important; height: 140px !important; padding: 5px !important; }
+  #modal.guia-dialogo #retrato-personagem { height: calc(100% - 20px) !important; }
+  #modal.guia-dialogo .conversa-cartao { width: calc(100vw - 128px) !important; max-height: 52vh !important; padding: 15px !important; }
+}
+@media (max-width: 420px) {
+  #tela-inicial { padding: 28px 12px 22px !important; }
+  #tela-inicial .inicio-apresentacao { padding: 21px 18px !important; }
+  #tela-inicial .inicio-apresentacao h1 { font-size: 34px !important; }
+  #tela-inicial .inicio-mapa-preview { min-height: 315px !important; padding: 11px !important; }
+  #tela-inicial .preview-mapa-arte { height: 245px !important; min-height: 245px !important; flex-basis: 245px !important; }
+  #tela-inicial .preview-legenda { gap: 4px !important; font-size: 7px !important; }
+  #tela-skins .skin-conteudo { padding: 20px 12px !important; }
+  #tela-skins #skin-opcoes-iniciais button { width: calc(50% - 8px) !important; max-width: 160px; }
+  #modal.guia-dialogo { align-items: flex-end !important; gap: 7px !important; padding: 0 8px 10px !important; }
+  #modal.guia-dialogo #conversa-personagem { flex: 0 0 76px !important; width: 76px !important; height: 115px !important; }
+  #modal.guia-dialogo .conversa-cartao { width: calc(100vw - 102px) !important; max-height: 58vh !important; padding: 12px !important; }
+  #modal.guia-dialogo #modal-titulo { font-size: 15px !important; }
+  #modal.guia-dialogo #modal-texto { font-size: 12px !important; }
+}
+
+/* Elementos antes formatados diretamente no HTML/markup dinâmico. */
+#lobby-selos{margin-top:15px}
+#mapa-titulo{margin-bottom:5px}
+#mapa-sub{text-align:center}
+#fim-texto{font-size:15px;margin:18px 0;line-height:1.6}
+#fim-xp-titulo{color:#7CA982;margin-bottom:20px}
+#fim-xp{color:#fff}
+.sequencia-simbolos{font-size:32px;letter-spacing:16px;margin:14px 0;text-align:center}
+.sequencia-progresso{font-size:26px;letter-spacing:14px;min-height:34px;text-align:center;color:#7CA982}
+.sequencia-botoes{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.badge-tag-destaque{font-size:16px;padding:10px 20px}
+.texto-recompensa-final{color:var(--nx-green2)!important}
+
+
+/* Ações de missão aparecem no próprio cartão inicial apenas quando existe um save. */
+#tela-inicial #botoes-inicio{display:flex!important;grid-column:auto!important;grid-row:auto!important;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-top:12px!important;width:100%}
+
+
+/* Componentes gerados pelo JavaScript: classes nomeadas em vez de estilos inline. */
+#tela-skins .skin-opcao { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; min-width:150px; padding:14px 18px; }
+#tela-skins .skin-opcao-previa { display:block; width:64px; height:96px; image-rendering:pixelated; background:transparent; }
+#tela-skins .skin-opcao-nome { font-weight:600; background:transparent; }
+#tela-skins .skin-opcao-estado { font-size:12px; opacity:.75; background:transparent; }
+#modal #modal-conteudo button:disabled { opacity:.55; cursor:not-allowed; }
+#modal #modal-conteudo button.botao-sequencia { min-width:42px; min-height:44px; font-size:22px!important; }
+#tela-fim .resumo-skin { margin:18px auto; color:var(--nx-green2); font-size:13px; }
+#tela-fim .mensagem-recompensa-final { margin:20px 0; color:var(--nx-green); font-size:15px; line-height:1.6; }
+
+/* Correção definitiva do componente de conversa compartilhado.
+   O retrato é irmão do cartão no HTML; portanto, o cartão não deve reservar
+   uma segunda coluna interna para o personagem. */
+#modal {
+  box-sizing: border-box !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  gap: clamp(12px, 2vw, 24px) !important;
+  padding: 0 3vw 3vh !important;
+  overflow: hidden !important;
+}
+#modal #conversa-personagem {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex: 0 0 clamp(130px, 14vw, 175px) !important;
+  width: clamp(130px, 14vw, 175px) !important;
+  height: clamp(185px, 27vh, 245px) !important;
+  min-height: 0 !important;
+  max-height: 30vh !important;
+  align-self: flex-end !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 7px 7px 9px !important;
+  overflow: hidden !important;
+  background: linear-gradient(145deg, #E8ECE1, #DCE5D9) !important;
+  border: 1px solid #A9C4A8 !important;
+  border-bottom: 4px solid #557257 !important;
+  border-radius: 4px 14px 4px 4px !important;
+  box-shadow: 3px 4px 0 rgba(43,66,43,.14) !important;
+}
+#modal #retrato-personagem {
+  display: block !important;
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: calc(100% - 25px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  image-rendering: pixelated !important;
+}
+#modal #retrato-nome {
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 5px 2px !important;
+  background: #2B422B !important;
+  color: #F8F8F1 !important;
+  border: 1px solid #557257 !important;
+  border-radius: 2px !important;
+  font: 800 9px/1.3 'Courier New', monospace !important;
+  text-align: center !important;
+  overflow-wrap: anywhere !important;
+}
+#modal .conversa-cartao,
+#modal.com-personagem .conversa-cartao,
+#modal.sem-personagem .conversa-cartao {
+  display: block !important;
+  grid-template-columns: none !important;
+  box-sizing: border-box !important;
+  flex: 0 1 760px !important;
+  width: min(760px, calc(100vw - 240px)) !important;
+  max-width: 760px !important;
+  min-width: 0 !important;
+  max-height: 46vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  margin: 0 !important;
+  padding: 22px 26px 18px !important;
+  text-align: left !important;
+  background: #F8F8F1 !important;
+  color: #2B422B !important;
+  border: 1px solid #A9C4A8 !important;
+  border-radius: 20px 20px 20px 5px !important;
+  box-shadow: 4px 4px 0 rgba(43,66,43,.14), 0 12px 26px rgba(20,35,25,.14) !important;
+}
+#modal.sem-personagem #conversa-personagem { display: none !important; }
+#modal.sem-personagem .conversa-cartao {
+  flex: 0 1 760px !important;
+  width: min(760px, 94vw) !important;
+  max-width: 760px !important;
+}
+#modal .conversa-conteudo {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-wrap: anywhere;
+}
+#modal .conversa-conteudo h2,
+#modal #modal-titulo {
+  display: block !important;
+  position: static !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 0 13px !important;
+  padding: 0 0 11px !important;
+  background: transparent !important;
+  color: #2B422B !important;
+  border: 0 !important;
+  border-bottom: 1px solid #C8D7C6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font: 700 clamp(18px, 1.8vw, 23px)/1.3 'Inter', sans-serif !important;
+  letter-spacing: -.02em !important;
+  text-align: left !important;
+  text-transform: none !important;
+  text-shadow: none !important;
+  overflow-wrap: anywhere !important;
+}
+#modal .conversa-conteudo p,
+#modal #modal-texto {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #344B35 !important;
+  font: 500 15px/1.65 'Inter', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-shadow: none !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+#modal .conversa-conteudo #modal-conteudo,
+#modal #modal-conteudo {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  max-height: 22vh !important;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+#modal #modal-conteudo button.opcao { width: 100% !important; display: block !important; text-align: left !important; }
+#modal .conversa-conteudo #modal-btn-continuar,
+#modal #modal-btn-continuar {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-height: 40px !important;
+  margin: 4px 0 0 !important;
+  padding: 10px 16px !important;
+  background: #2B422B !important;
+  color: #F8F8F1 !important;
+  border: 1px solid #557257 !important;
+  border-radius: 3px !important;
+  box-shadow: 0 3px 0 #A9C4A8 !important;
+  font: 800 11px/1.3 'Courier New', monospace !important;
+  white-space: normal !important;
+}
+#modal.guia-dialogo .conversa-cartao::after { pointer-events: none !important; z-index: 0 !important; }
+@media (max-width: 700px) {
+  #modal { flex-direction: column !important; align-items: stretch !important; justify-content: flex-end !important; gap: 9px !important; padding: 14px 10px 12px !important; overflow-y: auto !important; }
+  #modal #conversa-personagem { flex: 0 0 118px !important; width: 96px !important; height: 118px !important; max-height: 118px !important; align-self: flex-start !important; margin-left: 7px !important; }
+  #modal #retrato-personagem { width: 100% !important; height: calc(100% - 23px) !important; }
+  #modal .conversa-cartao,
+  #modal.com-personagem .conversa-cartao,
+  #modal.sem-personagem .conversa-cartao { flex: 0 0 auto !important; width: 100% !important; max-width: none !important; max-height: 48vh !important; padding: 17px 15px 15px !important; border-radius: 16px 16px 16px 4px !important; }
+  #modal .conversa-conteudo h2,
+  #modal #modal-titulo { font-size: 17px !important; }
+  #modal .conversa-conteudo p,
+  #modal #modal-texto { font-size: 13px !important; line-height: 1.55 !important; }
+  #modal .conversa-conteudo #modal-conteudo,
+  #modal #modal-conteudo { max-height: 19vh !important; }
+}

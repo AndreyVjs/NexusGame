@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NexusGame: uma aventura em pixel art para explorar setores, resolver desafios e desenvolver competências profissionais.">
+  <link rel="icon" type="image/svg+xml" href="assets/imagens/favicon.svg">
+<title>Estação Nexus — RPG Corporativo Gamificado</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/01-base.css">
+
+
+
+
+<link rel="stylesheet" href="css/04-identidade-visual.css">
+
+</head>
+<body>
+
+<!-- ===================== TELA: INICIAL (TÍTULO) ===================== -->
+<div class="tela ativa" id="tela-inicial">
+  <div class="inicio-guia">
+    <section class="inicio-apresentacao">
+      <p class="inicio-sobretitulo">CENTRO DE ORIENTAÇÃO</p><h1>ESTAÇÃO NEXUS</h1>
+      <p class="sub" id="inicial-sub">Nível 1 — Treinamentos</p><p id="inicial-texto" class="inicio-resumo"></p>
+      <div class="inicio-destaques"><span>Explore</span><span>Converse</span><span>Aprenda</span></div>
+      <button type="button" id="inicio-abrir-conversa">Conversar com o guia →</button>
+      <div id="botoes-inicio" class="inicio-botoes-save"></div>
+    </section>
+    <section class="inicio-mapa-preview" aria-label="Mapa da Estação Nexus">
+      <div class="preview-cabecalho"><span class="preview-ponto"></span><span>MAPA DA ESTAÇÃO</span><span class="preview-status">SETOR 01</span></div>
+      <div class="preview-mapa-arte" aria-hidden="true">
+        <img src="assets/imagens/mapa-preview.svg" alt="" role="presentation">
+      </div>
+      <div class="preview-legenda"><span><i class="legenda-ponto"></i> Áreas da estação</span><span>EXPLORE · APRENDA · EVOLUA</span></div>
+    </section>
+  </div>
+</div>
+
+<!-- ===================== TELA: ESCOLHA DE SKIN ===================== -->
+<div class="tela" id="tela-skins">
+  <div class="skin-conteudo">
+    <h1>Escolha sua skin</h1>
+    <p>Personalize seu explorador antes de começar o treinamento.</p>
+    <div id="skin-opcoes-iniciais"></div>
+    <button id="skin-confirmar">Confirmar e começar →</button>
+  </div>
+</div>
+
+<!-- ===================== TELA: QUIZ INICIAL ===================== -->
+<div class="tela" id="tela-quiz">
+  <div class="fog-flutuante"></div>
+  <div class="cartao">
+    <div id="quiz-progresso">Pergunta 1 de 5</div>
+    <div id="quiz-pergunta"></div>
+    <div id="quiz-opcoes"></div>
+  </div>
+</div>
+
+<!-- ===================== TELA: LOBBY ===================== -->
+<div class="tela" id="tela-lobby">
+  <div class="fog-flutuante"></div>
+  <div class="cartao">
+    <h2>Bem-vindo, agente.</h2>
+    <div id="lobby-habilidade"></div>
+
+    <div class="barra-atributo">
+      <div class="rotulo"><span>Conhecimento</span><span id="v-conhecimento">0</span></div>
+      <div class="barra-fundo"><div class="barra-preenchida" id="b-conhecimento"></div></div>
+    </div>
+    <div class="barra-atributo">
+      <div class="rotulo"><span>Colaboração</span><span id="v-colaboracao">0</span></div>
+      <div class="barra-fundo"><div class="barra-preenchida" id="b-colaboracao"></div></div>
+    </div>
+    <div class="barra-atributo">
+      <div class="rotulo"><span>Inovação</span><span id="v-inovacao">0</span></div>
+      <div class="barra-fundo"><div class="barra-preenchida" id="b-inovacao"></div></div>
+    </div>
+    <div class="barra-atributo">
+      <div class="rotulo"><span>Comunicação</span><span id="v-comunicacao">0</span></div>
+      <div class="barra-fundo"><div class="barra-preenchida" id="b-comunicacao"></div></div>
+    </div>
+
+    <div id="lobby-selos"></div>
+
+    <button id="btn-entrar-missao">Entrar na Missão →</button>
+  </div>
+</div>
+
+<!-- ===================== TELA: MAPA (EXPLORAÇÃO) ===================== -->
+<div class="tela" id="tela-mapa">
+  <h2 id="mapa-titulo">Setor de Treinamento</h2>
+  <p class="sub" id="mapa-sub">WASD / setas para mover · E para interagir</p>
+  
+  <div id="mapa-wrap">
+    <canvas id="mapa-canvas" width="800" height="480"></canvas>
+    <div id="prompt-mapa"></div>
+  </div>
+  
+  <div id="hud-mapa">
+    <div>XP Total: <span id="hud-xp">0</span></div>
+    <div><span id="hud-inimigos-rotulo">Inimigos Descobertos</span>: <span id="hud-inimigos">0</span> / <span id="hud-inimigos-total">3</span></div>
+  </div>
+</div>
+
+<!-- ===================== TELA: FIM DO NÍVEL ===================== -->
+<div class="tela" id="tela-fim">
+  <div class="fog-flutuante"></div>
+  <div class="cartao">
+    <h2 id="fim-titulo">Nível concluído</h2>
+    <div id="fim-badge"></div>
+    <p id="fim-texto"></p>
+    <h3 id="fim-xp-titulo">XP Acumulado: <span id="fim-xp"></span></h3>
+    <div id="fim-botoes"></div>
+  </div>
+</div>
+
+<!-- ===================== MODAL DE INTERAÇÃO ===================== -->
+<div id="modal">
+  <div id="conversa-personagem" aria-hidden="true">
+    <canvas id="retrato-personagem" width="128" height="160"></canvas>
+    <span id="retrato-nome"></span>
+  </div>
+  <div class="cartao conversa-cartao">
+    <div class="conversa-conteudo">
+      <h2 id="modal-titulo"></h2>
+      <p id="modal-texto"></p>
+      <div id="modal-conteudo"></div>
+      <button id="modal-btn-continuar">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/jogo.js" defer></script>
+
+</body>
+</html>

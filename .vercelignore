@@ -1,0 +1,10 @@
+# O Vercel publica o site estático; documentação e ferramentas ficam no GitHub.
+docs/
+tests/
+.github/
+.vscode/
+*.md
+.editorconfig
+.gitattributes
+.gitignore
+.vercelignore

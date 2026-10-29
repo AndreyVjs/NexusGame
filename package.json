@@ -1,0 +1,15 @@
+{
+  "name": "nexusgame",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Jogo educativo em pixel art para treinamentos e processos seletivos gamificados, com desafios de situações profissionais.",
+  "scripts": {
+    "check:js": "node --check js/jogo.js",
+    "test": "node --test tests/integridade.test.js",
+    "check": "npm run check:js && npm test",
+    "dev": "python3 -m http.server 4173"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

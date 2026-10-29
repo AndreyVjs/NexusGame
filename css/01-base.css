@@ -1,0 +1,325 @@
+/* Estilos-base extraídos do HTML original; ordem mantida para preservar o comportamento. */
+* { box-sizing: border-box; }
+  :root { --creme:#F0F1E8; --creme-claro:#F4F5EC; --verde-musgo:#2B422B; --verde-salvia:#7CA982; --verde-salvia-claro:#A9C4A8; --verde-musgo-escuro:#203520; --texto:#2B422B; }
+  body {
+    margin: 0; padding: 0; overflow: hidden;
+    background: #F0F1E8;
+    font-family: 'Inter', sans-serif; color: var(--creme-claro);
+    width: 100vw; height: 100vh;
+  }
+  
+  h1, h2, h3 { font-family: 'Orbitron', sans-serif; color: #2B422B; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 2px; }
+  h1 { font-size: 28px; text-shadow: 0 0 18px rgba(166,139,220,.24); }
+  p.sub { color: #5f7a94; font-size: 14px; margin: 0 0 20px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .tela {
+    display: none; 
+    width: 100vw; 
+    height: 100vh; 
+    position: fixed; 
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+  }
+  .tela.ativa { display: flex; }
+
+  /* ---------- Fundos originais das telas ---------- */
+  #tela-inicial { background-image:url('../assets/imagens/imagem1.png'); }
+  #tela-skins { background-image:url('../assets/imagens/imagem1.png'); background-color:transparent; }
+  #tela-skins::before { background:linear-gradient(180deg,rgba(5,3,10,.28) 0%,rgba(5,3,10,.58) 58%,rgba(5,3,10,.78) 100%); }
+  #tela-skins .skin-conteudo { position:relative; z-index:1; text-align:center; padding:28px; background:transparent!important; border:0!important; box-shadow:none!important; }
+  #tela-quiz { background-image:url('../assets/imagens/imagem2.png'); }
+  #tela-lobby { background-image:url('../assets/imagens/imagem3.png'); }
+  #tela-fim { background-image:url('../assets/imagens/imagem1.png'); }
+  .tela::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(5,3,10,.65) 0%,rgba(5,3,10,.88) 100%); pointer-events:none; z-index:0; }
+
+  .fog-flutuante {
+    position: absolute;
+    inset: -25%;
+    background-image: url('../assets/imagens/imagem3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    animation: derivar 22s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  @keyframes derivar {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(-3%,2%) scale(1.04); }
+  }
+
+  /* ---------- Cartões e painéis translúcidos ---------- */
+  .cartao {
+    position: relative; z-index: 1;
+    background:linear-gradient(145deg,rgba(45,31,38,.97),rgba(27,24,35,.97));
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:2px solid rgba(152,112,82,.58);
+    box-shadow:0 16px 42px rgba(55,35,50,.20),0 0 0 4px rgba(255,248,235,.35),inset 0 1px 0 rgba(255,255,255,.55);
+    border-radius:18px; padding:36px; width:90%; max-width:620px; text-align:center;
+  }
+  .cartao h1,.cartao h2,.cartao h3 { color:#2B422B; text-shadow:none; }
+  .cartao p.sub { color:#765d78; }
+  .cartao p { color:#514454; }
+  .cartao label,.cartao small { color:#66546b; }
+
+  .barra-atributo { margin: 14px 0; }
+  .barra-atributo .rotulo { display: flex; justify-content: space-between; font-size: 13px; color: #8fb3d0; margin-bottom: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .barra-fundo { background: rgba(22, 35, 61, 0.8); border-radius: 8px; height: 14px; overflow: hidden; border: 1px solid rgba(168,85,247,0.15); }
+  .barra-preenchida { background: linear-gradient(90deg, #5E795F, #7CA982); height: 100%; width: 0%; transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 10px rgba(168,85,247,0.5); }
+
+  button {
+    background: linear-gradient(135deg, #354453 0%, #252b3d 75%, #3b3150 100%);
+    color: #d8f3ff;
+    border: 1px solid #7CA982;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  button:hover { 
+    background: linear-gradient(135deg, #46596a 0%, #34394d 75%, #514367 100%);
+    box-shadow: 0 0 15px rgba(168,85,247,0.5);
+    transform: translateY(-2px);
+  }
+  button.opcao { 
+    display: block; 
+    width: 100%; 
+    text-align: left; 
+    margin-bottom: 12px; 
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 14px 18px;
+    line-height: 1.4;
+  }
+
+  button.secundario {
+    background: transparent;
+    border: 1px solid rgba(168,85,247,0.4);
+    color: #2B422B;
+    box-shadow: none;
+    margin-left: 10px;
+  }
+  button.secundario:hover { background: rgba(124,58,237,0.15); box-shadow: none; }
+
+  /* ---------- Quiz ---------- */
+  #quiz-pergunta { font-size: 18px; margin-bottom: 25px; line-height: 1.6; font-weight: 600; }
+  #quiz-progresso { font-family: 'Orbitron', sans-serif; font-size: 13px; color: #7CA982; margin-bottom: 15px; text-transform: uppercase; }
+
+  /* ---------- Lobby ---------- */
+  #lobby-habilidade { color:#35251d; font-family:'Orbitron',sans-serif; font-size:17px; margin:12px 0 24px; background:linear-gradient(135deg,#ead4b2,#d7bd98); border:2px solid #8c6749; padding:14px; border-radius:8px; box-shadow:0 4px 0 rgba(72,46,31,.22); }
+
+  /* ---------- Fluxo inicial com diálogo de RPG ---------- */
+  #tela-quiz, #tela-lobby { background-image:url('../assets/imagens/imagem1.png'); background-position:center; }
+  #tela-quiz::before, #tela-lobby::before { background:linear-gradient(180deg,rgba(5,3,10,.28) 0%,rgba(5,3,10,.58) 58%,rgba(5,3,10,.78) 100%); }
+  #tela-quiz .fog-flutuante, #tela-lobby .fog-flutuante { display:none; }
+
+  /* ---------- Regra antiga de painéis; valores finais são definidos em css/04-identidade-visual.css ---------- */
+  .tela > .cartao {
+    background:linear-gradient(145deg,rgba(45,31,38,.97),rgba(27,24,35,.97));
+    border:3px solid #76513b;
+    outline:1px solid rgba(242,216,174,.55);
+    box-shadow:0 8px 0 rgba(12,8,14,.75),0 14px 34px rgba(0,0,0,.48),inset 0 0 0 1px rgba(200,155,107,.45);
+  }
+  #tela-inicial .cartao, #tela-fim .cartao {
+    color:#f4eadc; border-radius:6px; padding:26px 30px 24px;
+  }
+  #tela-inicial .cartao h1, #tela-inicial .cartao h2, #tela-inicial .cartao h3,
+  #tela-fim .cartao h1, #tela-fim .cartao h2, #tela-fim .cartao h3 { color:#f4eadc; }
+  #tela-inicial .cartao p, #tela-fim .cartao p { color:#d9c7ad; }
+  #tela-inicial .cartao p.sub { color:#7CA982; }
+  #tela-inicial #inicial-texto { color:#eadfce!important; }
+  #tela-inicial button, #tela-fim button { background:#76513b; color:#fff1d6; border:1px solid #c7a37a; border-radius:5px; box-shadow:0 3px 0 #3e2a22; }
+  #tela-inicial button:hover, #tela-fim button:hover { background:#8b6045; box-shadow:0 4px 0 #3e2a22; transform:translateY(-1px); }
+
+  #tela-quiz .cartao, #tela-lobby .cartao {
+    position:absolute; z-index:1; left:50%; top:50%; bottom:auto; transform:translate(-50%,-50%);
+    width:min(860px,92vw); max-width:860px; margin:0; padding:20px 26px 18px;
+    text-align:left; border-radius:6px;
+    background:linear-gradient(145deg,rgba(45,31,38,.97),rgba(27,24,35,.97));
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    border:3px solid #76513b; outline:1px solid rgba(242,216,174,.55);
+    box-shadow:0 8px 0 rgba(12,8,14,.75),0 14px 34px rgba(0,0,0,.48),inset 0 0 0 1px rgba(200,155,107,.45);
+  }
+  #tela-quiz .cartao::before, #tela-lobby .cartao::before {
+    content:'NEXUS'; position:absolute; left:24px; top:-15px; z-index:2;
+    background:#76513b; color:#fff1d6; border:2px solid #f2d8ae; border-radius:4px;
+    padding:5px 12px; font:600 12px 'Inter',sans-serif; letter-spacing:1px;
+    box-shadow:0 2px 5px rgba(0,0,0,.5);
+  }
+  #tela-quiz .cartao::after, #tela-lobby .cartao::after {
+    content:''; position:absolute; left:31px; top:-8px; width:13px; height:13px;
+    background:#76513b; border-left:2px solid #f2d8ae; border-top:2px solid #f2d8ae;
+    transform:rotate(45deg); z-index:1;
+  }
+  #tela-quiz #quiz-progresso { color:#7CA982; font-size:12px; margin:0 0 8px; padding-left:2px; }
+  #tela-quiz #quiz-pergunta { color:#f4eadc; font-size:17px; line-height:1.55; margin:0 0 16px; font-weight:600; }
+  #tela-quiz #quiz-opcoes { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  #tela-quiz button.opcao {
+    margin:0; width:100%; padding:11px 14px; text-align:left; line-height:1.35;
+    background:rgba(90,67,55,.72); color:#f4eadc; border:1px solid #9d7658; border-radius:5px;
+    box-shadow:inset 0 1px rgba(255,255,255,.08),0 2px 0 rgba(0,0,0,.35); font-size:13px;
+  }
+  #tela-quiz button.opcao:hover { background:rgba(118,81,59,.92); border-color:#d2ad7d; box-shadow:0 0 12px rgba(210,173,125,.2); transform:none; }
+
+  #tela-lobby .cartao { max-width:760px; }
+  #tela-lobby .cartao h2 { color:#f4eadc; font-size:21px; margin:0 0 10px; text-shadow:none; }
+  #tela-lobby #lobby-habilidade {
+    color:#e9d8bd; background:rgba(90,67,55,.45); border:1px solid #8c6749;
+    padding:10px 13px; margin:0 0 14px; border-radius:5px; box-shadow:none;
+    font-size:15px;
+  }
+  #tela-lobby .barra-atributo { margin:8px 0; }
+  #tela-lobby .barra-atributo .rotulo { color:#d9c7ad; margin-bottom:4px; font-size:11px; }
+  #tela-lobby .barra-fundo { height:9px; background:rgba(8,10,17,.78); border:1px solid #594653; border-radius:3px; }
+  #tela-lobby .barra-preenchida { background:linear-gradient(90deg,#76513b,#7CA982); box-shadow:none; }
+  #tela-lobby #lobby-selos { margin-top:10px!important; }
+  #tela-lobby button { margin-top:10px; background:#76513b; color:#fff1d6; border:1px solid #c7a37a; border-radius:5px; padding:10px 18px; box-shadow:0 3px 0 #3e2a22; }
+  #tela-lobby button:hover { background:#8b6045; box-shadow:0 4px 0 #3e2a22; transform:translateY(-1px); }
+  @media(max-width:700px) {
+    #tela-quiz #quiz-opcoes { grid-template-columns:1fr; }
+    #tela-quiz .cartao, #tela-lobby .cartao { top:50%; bottom:auto; width:94vw; padding:18px 16px 14px; }
+  }
+
+  /* ---------- Mapa ---------- */
+  #tela-mapa { flex-direction:column; align-items:center; justify-content:center; gap:0; padding:0; background-image:url('../assets/imagens/imagem2.png'); }
+  #tela-mapa > h2, #tela-mapa > p.sub, #tela-mapa > #hud-mapa { display:none; }
+  #tela-mapa #mapa-wrap { width:min(96vw,144vh); margin:0; box-shadow:none; }
+  #tela-mapa #mapa-canvas { border-color:#76513b; box-shadow:none; }
+  #tela-mapa h2 { font-size:clamp(16px,2.1vh,24px); margin:0 0 2px!important; color:#2B422B; text-shadow:none; }
+  #tela-mapa p.sub { font-size:clamp(9px,1.25vh,12px); margin:0 0 8px; color:#765d78; }
+  #tela-mapa::before { background:none; }
+  
+  #mapa-wrap { position:relative; width:min(96vw,144vh); margin:0; box-shadow:0 12px 32px rgba(0,0,0,.35); border-radius:8px; overflow:hidden; }
+  #mapa-canvas {
+    image-rendering:pixelated; background:#0a0f18; border:2px solid #394654; border-radius:8px; display:block; width:100%; height:auto; aspect-ratio:5 / 3; box-shadow:inset 0 0 40px rgba(81,64,100,.08);
+  }
+  #prompt-mapa {
+    position: absolute;
+    background: rgba(24,32,42,.96);
+    backdrop-filter: blur(4px);
+    border: 1px solid #7CA982;
+    color: #2B422B;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 10px rgba(168,85,247,0.3);
+  }
+  #prompt-mapa.visivel { opacity: 1; }
+  #hud-mapa {
+    display: flex;
+    justify-content: space-between;
+    gap:12px; width:min(96vw,144vh); font-family:'Orbitron',sans-serif; font-size:clamp(10px,1.5vh,13px); color:#514454; margin-top:8px; background:rgba(10,16,26,.70); padding:8px 14px; border-radius:6px; border:1px solid #394654;
+  }
+  #hud-mapa span { color: #2B422B; font-weight: bold; }
+
+  /* Conversa visual novel: personagem visível ao lado do diálogo, sem cobrir a exploração. */
+  #modal .conversa-cartao{display:grid;grid-template-columns:132px minmax(0,1fr);gap:18px;align-items:center;width:min(880px,95vw);max-width:880px;padding:18px 22px;text-align:left;}
+  #conversa-personagem{min-height:184px;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;overflow:hidden;background:#E8ECE1;border:1px solid #A9C4A8;border-bottom:3px solid #2B422B;border-radius:4px;}
+  #retrato-personagem{width:128px;height:160px;image-rendering:pixelated;display:block;}
+  #retrato-nome{width:100%;box-sizing:border-box;padding:6px 3px;text-align:center;font:10px 'Orbitron',sans-serif;color:#2B422B;background:#D4DED1;}
+  #modal .conversa-conteudo{min-width:0;}
+  #modal .conversa-conteudo h2{margin:0 0 10px;color:#2B422B;font-size:clamp(16px,2vw,22px);}
+  #modal .conversa-conteudo p{margin-bottom:12px;}
+  #modal .conversa-conteudo #modal-conteudo{max-height:36vh;overflow-y:auto;}
+  @media(max-width:600px){#modal .conversa-cartao{grid-template-columns:76px minmax(0,1fr);gap:10px;padding:12px 10px;}#conversa-personagem{min-height:126px;}#retrato-personagem{width:76px;height:100px;}#retrato-nome{font-size:8px;padding:5px 1px;}#modal .conversa-conteudo p{font-size:12px;line-height:1.45;}#modal .conversa-conteudo button{padding:9px 10px;font-size:11px;}}
+  #modal .conversa-cartao.sem-personagem{grid-template-columns:minmax(0,1fr);}
+  #modal .conversa-cartao.sem-personagem #conversa-personagem{display:none;}
+
+  /* ---------- Diálogo RPG: balão de fala ancorado na parte inferior ---------- */
+  #modal {
+    position: fixed; inset: 0; background: linear-gradient(180deg,transparent 42%,rgba(5,8,13,.18) 70%,rgba(5,8,13,.42));
+    display: none; align-items: flex-end; justify-content: center; z-index: 100; padding: 0 3vw 3vh;
+    pointer-events: none;
+  }
+  #modal.aberto { display: flex; animation: fadeIn .18s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  #modal .cartao {
+    pointer-events: auto; position:relative; width:min(760px,94vw); max-width:760px; text-align:left;
+    padding:18px 22px 16px 26px; margin:0; border-radius:5px;
+    background:linear-gradient(145deg,rgba(45,31,38,.98),rgba(27,24,35,.98)); color:#f4eadc;
+    border:4px solid #76513b; outline:2px solid rgba(242,216,174,.55); box-shadow:0 7px 0 rgba(28,18,14,.75),0 12px 34px rgba(0,0,0,.5),inset 0 0 0 2px #8c6749;
+  }
+  #modal .cartao:before { content:''; position:absolute; left:30px; top:-13px; width:18px; height:18px; background:#f2d8ae; border-left:3px solid #76513b; border-top:3px solid #76513b; transform:rotate(45deg); }
+  #modal h2 { display:table; position:relative; z-index:1; background:#76513b; color:#fff1d6; font:600 13px 'Inter',sans-serif; letter-spacing:.2px; text-transform:none; padding:5px 12px; margin:-31px 0 12px!important; border:2px solid #f2d8ae; border-radius:4px; box-shadow:0 2px 4px #0005; }
+  #modal p { font-size:15px; line-height:1.65; color:#eadfce; margin:0 0 10px; font-weight:600; text-shadow:none; }
+  #modal button { background:#76513b; color:#fff1d6; border:2px solid #c7a37a; border-radius:4px; box-shadow:0 2px 0 #3e2a22; font:600 13px 'Inter',sans-serif; letter-spacing:0; padding:9px 13px; margin:5px 6px 0 0; }
+  #modal button:hover { background:#8b6045; transform:translateY(-1px); box-shadow:0 3px 0 #3e2a22; }
+  #modal button.opcao { display:block; width:100%; text-align:left; line-height:1.4; margin:7px 0; }
+  #modal-conteudo { max-height:35vh; overflow-y:auto; }
+  @media(max-width:600px) { #modal {padding:0 12px 16px} #modal .cartao {padding:16px 14px 12px} #modal p{font-size:13px} }
+
+  /* ---------- Paleta oficial Nexus: creme + musgo + sálvia ---------- */
+  body { background:#F0F1E8; color:#2B422B; }
+  .tela { background-color:#F0F1E8; }
+  .tela::before, #tela-quiz::before, #tela-lobby::before, #tela-skins::before { background:rgba(240,241,232,.18); }
+  #tela-inicial, #tela-skins, #tela-quiz, #tela-lobby, #tela-fim { background-image:none; background-color:#F0F1E8; }
+  h1,h2,h3 { color:#2B422B !important; text-shadow:none !important; }
+  p, .cartao p, .cartao label, .cartao small, p.sub { color:#2B422B; }
+  .cartao, .tela > .cartao, #tela-quiz .cartao, #tela-lobby .cartao, #modal .cartao {
+    background:#F4F5EC;
+    color:#2B422B;
+    border:2px solid #7CA982;
+    outline:1px solid rgba(43,66,43,.12);
+    box-shadow:0 10px 28px rgba(43,66,43,.12), inset 0 1px 0 rgba(255,255,255,.8);
+    backdrop-filter:none; -webkit-backdrop-filter:none;
+  }
+  #tela-inicial .cartao, #tela-fim .cartao { color:#2B422B; border-radius:14px; }
+  #tela-inicial .cartao p, #tela-fim .cartao p, #tela-inicial #inicial-texto { color:#2B422B !important; }
+  #tela-inicial .cartao p.sub { color:#7CA982 !important; }
+  button, #tela-inicial button, #tela-fim button, #tela-lobby button, #modal button {
+    background:#7CA982; color:#F4F5EC; border:1px solid #2B422B; border-radius:9px;
+    box-shadow:0 3px 0 rgba(43,66,43,.28); text-shadow:none;
+  }
+  button:hover, #tela-inicial button:hover, #tela-fim button:hover, #tela-lobby button:hover, #modal button:hover { background:#2B422B; color:#F4F5EC; box-shadow:0 4px 0 rgba(43,66,43,.22); }
+  button.secundario { background:transparent; color:#2B422B; border:1px solid #7CA982; box-shadow:none; }
+  button.secundario:hover { background:rgba(124,169,130,.16); color:#2B422B; box-shadow:none; }
+  #tela-quiz #quiz-progresso { color:#7CA982; }
+  #tela-quiz #quiz-pergunta { color:#2B422B; }
+  #tela-quiz button.opcao { background:#E2E9DE; color:#2B422B; border:1px solid #7CA982; box-shadow:none; }
+  #tela-quiz button.opcao:hover { background:#D2E0D1; border-color:#2B422B; box-shadow:none; }
+  #tela-lobby .cartao h2 { color:#2B422B !important; }
+  #tela-lobby #lobby-habilidade { color:#2B422B; background:#E2E9DE; border:1px solid #7CA982; }
+  #tela-lobby .barra-atributo .rotulo { color:#2B422B; }
+  #tela-lobby .barra-fundo { background:#DDE5D9; border:1px solid #A9C4A8; }
+  #tela-lobby .barra-preenchida { background:#7CA982; box-shadow:none; }
+  #tela-quiz .cartao::before, #tela-lobby .cartao::before, #modal h2 { background:#7CA982; color:#F4F5EC; border-color:#2B422B; }
+  #tela-quiz .cartao::after, #tela-lobby .cartao::after { background:#7CA982; border-color:#2B422B; }
+  #modal { background:rgba(240,241,232,.45); }
+  #modal .cartao { border-color:#7CA982; color:#2B422B; }
+  #modal .conversa-conteudo h2, #modal p { color:#2B422B; }
+  #conversa-personagem { background:#E2E9DE; border-color:#7CA982; border-bottom-color:#2B422B; }
+  #retrato-nome { color:#2B422B; background:rgba(244,245,236,.9); }
+  #mapa-wrap { box-shadow:0 10px 28px rgba(43,66,43,.16); }
+  #tela-mapa #mapa-canvas { border-color:#7CA982; box-shadow:inset 0 0 40px rgba(124,169,130,.12); }
+  #prompt-mapa { background:rgba(244,245,236,.96); border-color:#7CA982; color:#2B422B; box-shadow:0 4px 12px rgba(43,66,43,.14); }
+  #hud-mapa { color:#2B422B; background:rgba(244,245,236,.92); border-color:#7CA982; }
+  #hud-mapa span { color:#2B422B; }
+  .badge-tag { background:#E2E9DE; border-color:#7CA982; color:#2B422B; box-shadow:none; }
+
+  .badge-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, rgba(168,85,247,0.25), rgba(58,176,255,0.2));
+    border: 1px solid #7CA982;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: #2B422B;
+    box-shadow: 0 0 15px rgba(168,85,247,0.3);
+    margin: 6px;
+  }
