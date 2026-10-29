@@ -17,3 +17,5 @@ Thumbs.db
 # Cópias locais de segurança
 *.backup*.html
 *.bak
+.vercel
+.env*
